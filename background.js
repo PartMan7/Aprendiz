@@ -1,4 +1,4 @@
-const frequency = 1.5; // ranges from 0-1
+const frequency = 0.2;
 
 chrome.runtime.onInstalled.addListener(() => {
 	chrome.storage.sync.set({ frequency });

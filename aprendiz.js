@@ -1,8 +1,7 @@
 chrome.storage.sync.get("frequency", ({ frequency }) => {
 	chrome.storage.sync.get("lang", ({ lang }) => {
-		console.log(lang);
-		if (!lang) return;
-		translateWords(~~frequency, lang);
+		if (!frequency || !lang) return;
+		translateWords(Number(frequency), lang);
 	});
 });
 
@@ -13,18 +12,15 @@ function translateWords (freq, lang) {
 		Object.entries(words).forEach(([word, map]) => {
 			if (word === 'constructor') return;
 			if (!dictionary[word]) return;
-			// word exists in dictionary
-			// Go for word?
 			const dict = dictionary[word];
 			if (Math.random() < freq * dict.r) {
 				// We're changing this word!
 				const sample = map[Math.floor(Math.random() * map.length)];
-				const tempArr = text.split(sample.word);
+				const tempArr = text.split(new RegExp(`\\b${sample.word}\\b`));
 				const splinter = Math.floor(Math.random() * (tempArr.length - 1));
 				tempArr[splinter] = tempArr[splinter] + tag(sample.cap(dict[lang]), sample.word) + tempArr[splinter + 1];
 				tempArr.splice(splinter + 1, 1);
 				text = tempArr.join(sample.word);
-				console.log(`Replaced ${sample.word} with ${sample.cap(dict[lang])}`);
 			}
 		});
 		para.innerHTML = text;
@@ -56,5 +52,5 @@ function wordsMap (text) {
 }
 
 function tag (word, def) {
-	return `<b>${word}</b>`;
+	return `<div class="tooltip-aprendiz">${word}<span class="tooltip-aprendiz-text">${def}</span></div>`;
 }
