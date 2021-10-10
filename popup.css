@@ -15,7 +15,7 @@ select {
 	padding: 2px 3px;
 	font-weight: bold;
 	border-radius: 4px;
-	margin-left: 70px;
+	margin-left: 50px;
 }
 hr {
 	width: 80%;
@@ -28,7 +28,8 @@ input {
 	border-radius: 5px;
 	color: #00008b;
 	font-weight: bold;
-	margin-left: 70px;
+	margin-left: 50px;
+	margin-bottom: 20px;
 }
 option {
 	color: #ff7f7f;
@@ -36,4 +37,5 @@ option {
 body {
 	background-color: #7fbfff;
 	width: 300px;
+	/*font-family: 'Proxima Nova';*/
 }

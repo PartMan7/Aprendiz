@@ -1028,13 +1028,6 @@ const dictionary = {
 		"spanish": "sexto",
 		"r": 80
 	},
-	"seventh": {
-		"dutch": "zevende",
-		"french": "septième",
-		"german": "siebte",
-		"spanish": "séptimo",
-		"r": 80
-	},
 	"eight": {
 		"dutch": "acht",
 		"french": "huit",
