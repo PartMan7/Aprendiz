@@ -4,28 +4,28 @@ const dictionary = {
 		"french": "est",
 		"german": "ist",
 		"spanish": "es",
-		"r": 80
+		"r": 20
 	},
 	"as": {
 		"dutch": "als",
 		"french": "comme",
 		"german": "wie",
 		"spanish": "como",
-		"r": 80
+		"r": 20
 	},
 	"that": {
 		"dutch": "dat",
 		"french": "cette",
 		"german": "das",
 		"spanish": "ese",
-		"r": 80
+		"r": 20
 	},
 	"the": {
 		"dutch": "de",
 		"french": "les",
 		"german": "das",
 		"spanish": "los",
-		"r": 80
+		"r": 20
 	},
 	"how": {
 		"dutch": "hoe",
@@ -67,7 +67,7 @@ const dictionary = {
 		"french": "pour",
 		"german": "zum",
 		"spanish": "por",
-		"r": 80
+		"r": 20
 	},
 	"soon": {
 		"dutch": "spoedig",
@@ -109,7 +109,7 @@ const dictionary = {
 		"french": "chaud",
 		"german": "heiße",
 		"spanish": "caliente",
-		"r": 80
+		"r": 20
 	},
 	"cold": {
 		"dutch": "koud",

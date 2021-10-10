@@ -5,15 +5,23 @@ chrome.storage.sync.get("frequency", ({ frequency }) => {
 	});
 });
 
+let pastParas = [];
+
 function translateWords (freq, lang) {
+	if (pastParas.length) {
+		// Restore natural state before translating
+		pastParas.forEach(([para, text]) => para.innerHTML = text);
+		pastParas = [];
+	}
 	for (const para of document.querySelectorAll('p')) {
 		const words = wordsMap(para.textContent);
 		let text = para.innerHTML;
+		const temp = text;
 		Object.entries(words).forEach(([word, map]) => {
 			if (word === 'constructor') return;
 			if (!dictionary[word]) return;
 			const dict = dictionary[word];
-			if (Math.random() < freq * dict.r) {
+			if (Math.random() < freq * dict.r / 100) {
 				// We're changing this word!
 				const sample = map[Math.floor(Math.random() * map.length)];
 				const tempArr = text.split(new RegExp(`\\b${sample.word}\\b`));
@@ -23,6 +31,7 @@ function translateWords (freq, lang) {
 				text = tempArr.join(sample.word);
 			}
 		});
+		pastParas.push([para, temp]);
 		para.innerHTML = text;
 	}
 }
@@ -53,4 +62,10 @@ function wordsMap (text) {
 
 function tag (word, def) {
 	return `<div class="tooltip-aprendiz">${word}<span class="tooltip-aprendiz-text">${def}</span></div>`;
+}
+
+{
+	chrome.runtime.onMessage.addListener((request, sender) => {
+		if (request.freq && request.lang !== 'null') translateWords(request.freq, request.lang);
+	});
 }

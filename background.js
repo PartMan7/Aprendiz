@@ -1,5 +1,5 @@
-const frequency = 0.2;
-const lang = 'french';
+const frequency = 1;
+const lang = 'spanish';
 
 chrome.runtime.onInstalled.addListener(() => {
 	chrome.storage.sync.set({ frequency });
