@@ -1,6 +1,6 @@
 {
-	"name": "Getting Started Example",
-	"description": "Build an Extension!",
+	"name": "Aprendiz",
+	"description": "Aprendiz - The language assistant that won't stop teaching you, for free.",
 	"version": "1.0",
 	"manifest_version": 3,
 	"background": {
